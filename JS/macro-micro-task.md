@@ -71,3 +71,6 @@ setTimeout(() => {
 
 - 微任务：ES 语法标准之内，JS 引擎来统一处理。即，不用浏览器有任何关于，即可一次性处理完，更快更及时。
 - 宏任务：ES 语法没有，JS 引擎不处理，浏览器（或 nodejs）干预处理。
+
+![event](../assets/event%20loop%20+%20dom%20+%20micro%20task.png)
+![whole event](../assets/event%20loop%20+%20dom%20+%20micro%20task%20+%20marco%20task.png)
