@@ -1,0 +1,53 @@
+- 盒模型寬度計算
+  - offsetWidth = width + padding + border (no include margin)
+  - `box-sizing: border-box`, width includes content width + padding + border
+- margin 纵向重叠
+  - 相邻元素的 margin-top 和 margin-bottom 会重叠
+  - 空白内容的`<p>`会重叠
+- margin 负值问题
+  - margin-top 和 margin-left 负值，元素向上、向左移动
+  - margin-right 负值，右侧元素硗，自身不受影响
+  - margin-bottom 同理
+- BFC: Block format context
+  - 一个独立渲染区域，内部元素的渲染不会边界以外的元素
+  - 常见条件
+    - float 不是 none
+    - position 是 absolute/fixed
+    - overflow 不是 visible
+    - display 是 flex / inline-block 等
+- float 布局 (老的布局)
+  - 圣杯布局
+  - 双飞翼布局
+- flex 布局
+  - 骰子三点
+- 定位
+  - relative: 依据自身定位
+  - absolute: 依据最近一层的定位元素定位
+    - 找到上一个父级元素是 absolute/relative/fixed 定位的
+    - 如找不到，就是`body`
+  - 水平居中
+    - inline 元素: `text-align: center`
+    - block 元素: `margin:auto`
+    - absolute 元素: `left`: 50% + `margin-left` 负值
+  - 垂直居中
+    - inline 元素: line-height 的值等于 height 值
+    - absolute 元素：`top: 50% + margin-top` 负值
+    - absolute 元素: `transform(-50%, -50%)`
+    - absolute 元素: `top, left, bottom, right = 0 + margin:auto`
+- line-height 如何继承
+  - 父`line-height: 30px`,子继承`30px`
+  - 父`line-height: 1.5`，子继承该比例, 子`font-size * 1.5`
+  - 父`line-height: 200%`,子继承父`line-height`计算出来后的值, 为父的`font-size * line-height`
+- CSS 响应式
+  - rem：长度单位
+    - px: 绝对长度单位
+    - em: 相对长度单位，相对于父元素
+    - rem：相对长度单位，相对于根元素，常用于响应式布局
+    - 常用方案
+      - `media-query`
+  - vw/vh
+    - `rem`的弊端： 有阶梯性
+    - 网页视口尺寸
+      - `window.screen.height` 屏幕高度
+      - `window.innerHeight` 网页视口高度
+      - `document.body.clientHeight` body 高度

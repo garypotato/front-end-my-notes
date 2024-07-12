@@ -1,0 +1,4 @@
+- html semantic
+- block element / inline (inline-block) element
+  - block: div h1 h2 table ul ol p
+  - inline: span img input button
