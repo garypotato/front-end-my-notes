@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.bind1 = function () {
+            const args = Array.prototype.slice.apply(arguments)
+
+            const t = args.shift()
+            const self = this
+
+            return function () {
+                return self.apply(t, args)
+            }
+        }
+
+        function greet(greeting, punctuation) {
+            console.log(greeting + ', ' + this.name + punctuation);
+        }
+
+        const person = {
+            name: 'Alice'
+        };
+
+        const greetAlice = greet.bind1(person, 'Hello');
+
+        greetAlice('!');
+
+    </script>
+</body>
+
+</html>
