@@ -159,7 +159,7 @@ const zhangsan = new People('张三');
 zhangsan.sayHi(); // 打印什么
 ```
 
-<hr style="border: 10px solid white" />
+<hr style="border: 10px solid green" />
 
 # 作用域和闭包 - 解答
 
@@ -187,7 +187,20 @@ for (i = 0; i < 10; i++) {
 }
 ```
 
-怎么解决？—— 把 `let` 移动到 `for` 里即可
+怎么解决？—— 把 `let` 移动到 `for` 里即可, 形成新的块作用域
+
+```js
+let a;
+for (let i = 0; i < 10; i++) {
+	a = document.createElement('a');
+	a.innerHTML = i + '<br>';
+	a.addEventListener('click', function (e) {
+		e.preventDefault();
+		alert(i);
+	});
+	document.body.appendChild(a);
+}
+```
 
 ## 实际开发中闭包的应用
 
