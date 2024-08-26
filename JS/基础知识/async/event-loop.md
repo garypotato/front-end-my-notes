@@ -13,4 +13,4 @@
 - 輪詢`callback queue`，如有則移到`call stack`
 - 繼續輪詢查找
 
-![event lop](../assets/event%20loop.png)
+![event lop](../../../assets/event%20loop.png)

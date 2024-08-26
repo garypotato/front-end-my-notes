@@ -26,19 +26,19 @@ console.log(400);
 - 然后再进行 event loop
 
 ```js
-const $p1 = $('<p>一段文字</p>');
-const $p2 = $('<p>一段文字</p>');
-const $p3 = $('<p>一段文字</p>');
-$('#container').append($p1).append($p2).append($p3);
+const $p1 = $("<p>一段文字</p>");
+const $p2 = $("<p>一段文字</p>");
+const $p3 = $("<p>一段文字</p>");
+$("#container").append($p1).append($p2).append($p3);
 
-console.log('length', $('#container').children().length);
-alert('本次 call stack 结束，DOM 结构已更新，但尚未触发渲染');
+console.log("length", $("#container").children().length);
+alert("本次 call stack 结束，DOM 结构已更新，但尚未触发渲染");
 // （alert 会阻断 js 执行，也会阻断 DO M 渲染，便于查看效果）
 // 到此，即本次 call stack 结束后（同步任务都执行完了），浏览器会自动触发渲染，不用代码干预
 
 // 另外，按照 event loop 触发 DOM 渲染时机，setTimeout 时 alert ，就能看到 DOM 渲染后的结果了
 setTimeout(function () {
-	alert('setTimeout 是在下一次 Call Stack ，就能看到 DOM 渲染出来的结果了');
+	alert("setTimeout 是在下一次 Call Stack ，就能看到 DOM 渲染出来的结果了");
 });
 ```
 
@@ -49,10 +49,10 @@ setTimeout(function () {
 
 ```js
 // 修改 DOM
-const $p1 = $('<p>一段文字</p>');
-const $p2 = $('<p>一段文字</p>');
-const $p3 = $('<p>一段文字</p>');
-$('#container').append($p1).append($p2).append($p3);
+const $p1 = $("<p>一段文字</p>");
+const $p2 = $("<p>一段文字</p>");
+const $p3 = $("<p>一段文字</p>");
+$("#container").append($p1).append($p2).append($p3);
 
 // // 微任务：渲染之前执行（DOM 结构已更新）
 // Promise.resolve().then(() => {
@@ -62,7 +62,7 @@ $('#container').append($p1).append($p2).append($p3);
 
 // 宏任务：渲染之后执行（DOM 结构已更新）
 setTimeout(() => {
-	const length = $('#container').children().length;
+	const length = $("#container").children().length;
 	alert(`macro task ${length}`);
 });
 ```
@@ -72,5 +72,5 @@ setTimeout(() => {
 - 微任务：ES 语法标准之内，JS 引擎来统一处理。即，不用浏览器有任何关于，即可一次性处理完，更快更及时。
 - 宏任务：ES 语法没有，JS 引擎不处理，浏览器（或 nodejs）干预处理。
 
-![event](../assets/event%20loop%20+%20dom%20+%20micro%20task.png)
-![whole event](../assets/event%20loop%20+%20dom%20+%20micro%20task%20+%20marco%20task.png)
+![event](../../../assets/event%20loop%20+%20dom%20+%20micro%20task.png)
+![whole event](../../../assets/event%20loop%20+%20dom%20+%20micro%20task%20+%20marco%20task.png)
