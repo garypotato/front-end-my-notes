@@ -17,9 +17,9 @@ class Student {
 }
 
 // 用类来声明对象
-let xialuo = new Student('夏洛', 100);
+let xialuo = new Student("夏洛", 100);
 xialuo.sayHi();
-let madongmei = new Student('马冬梅', 101);
+let madongmei = new Student("马冬梅", 101);
 madongmei.sayHi();
 ```
 
@@ -60,9 +60,9 @@ class Teacher extends People {
 	}
 }
 
-const xialuo = new Student('夏洛', 100);
+const xialuo = new Student("夏洛", 100);
 xialuo.sayHi();
-const wanglaoshi = new Teacher('王老师', '语文');
+const wanglaoshi = new Teacher("王老师", "语文");
 wanglaoshi.teach();
 ```
 
@@ -114,7 +114,7 @@ console.log(xialuo.__proto__ === Student.prototype);
 - 会先从实例自身属性查找（可通过 `hasOwnProperty` 判断）
 - 如果找不到则自动去 **proto** 查找
 
-![prototype](../assets/原型.png)
+![prototype](../../assets/原型.png)
 
 ---
 
@@ -132,8 +132,8 @@ console.log(People.prototype === Student.prototype.__proto__);
 
 根据之前的规则，再去演练 `xialuo.eat()`
 
-![prototype](../assets/原型鏈2.png)
-![prototype](../assets/原型鏈.png)
+![prototype](../../assets/原型鏈2.png)
+![prototype](../../assets/原型鏈.png)
 
 ## 原型和原型链综合演练
 
@@ -151,7 +151,7 @@ console.log(People.prototype === Student.prototype.__proto__);
 - ECMA 只是规定语法，即我们的代码编写方式
 - 实现方式 ECMA 不管，以上是 V8 引擎实现方式 —— 但现在绝大多数运行环境都是用 v8 引擎（各个浏览器和 nodejs）
 
-<hr style="border: 10px solid white;"/>
+<hr style="border: 10px solid green;"/>
 
 # 原型和原型链 - 解答
 
